@@ -1,0 +1,68 @@
+.confirmation-page {
+  min-height: 70vh;
+  padding-top: calc(var(--section-padding) + 4rem);
+  padding-bottom: var(--section-padding);
+  background: var(--color-white);
+}
+
+.confirmation-page__title {
+  margin-top: 1rem;
+  font-size: clamp(2rem, 5vw, 3.25rem);
+}
+
+.confirmation-page__order-id {
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.confirmation-empty {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.confirmation-items {
+  margin-top: 2.5rem;
+  max-width: 480px;
+  border-top: 1px solid var(--color-border);
+}
+
+.confirmation-items__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.95rem;
+}
+
+.confirmation-manual {
+  margin-top: 2.5rem;
+  max-width: 480px;
+  padding: 1.5rem;
+  border: 2px solid var(--color-black);
+  border-radius: 8px;
+}
+
+.confirmation-manual h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.confirmation-manual p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.confirmation-paid-note {
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.confirmation-page a.btn {
+  margin-top: 2.5rem;
+}

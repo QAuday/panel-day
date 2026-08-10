@@ -1,0 +1,33 @@
+.footer {
+  background: var(--color-black);
+  color: rgba(255, 255, 255, 0.6);
+  padding-block: 2rem;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.footer__logo {
+  color: var(--color-white);
+}
+
+.footer__logo .logo__word {
+  font-size: 1.05rem;
+}
+
+.footer__social {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 200ms var(--ease);
+}
+
+.footer__social:hover {
+  color: var(--color-accent);
+}

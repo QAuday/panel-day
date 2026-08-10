@@ -1,0 +1,17 @@
+.hero-scene {
+  width: clamp(280px, 30vw, 460px);
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+}
+
+.hero-scene canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+@media (max-width: 960px) {
+  .hero-scene {
+    display: none;
+  }
+}

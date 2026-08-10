@@ -1,0 +1,30 @@
+.manifesto {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding-block: var(--section-padding);
+}
+
+.manifesto__inner {
+  max-width: 900px;
+}
+
+.manifesto__eyebrow {
+  display: block;
+  margin-bottom: 1.5rem;
+}
+
+.manifesto__statement {
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: var(--color-white);
+}
+
+.manifesto__accent {
+  color: var(--color-accent);
+}
+
+.manifesto__body {
+  margin-top: 2.25rem;
+  max-width: 60ch;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.7);
+}
