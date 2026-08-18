@@ -52,6 +52,11 @@
   text-transform: uppercase;
 }
 
+.cart-item__size {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
 .cart-item__price {
   font-weight: 700;
   color: var(--color-muted);
@@ -105,12 +110,25 @@
   gap: 1.25rem;
 }
 
+.cart-summary__free-shipping-note {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
 .cart-summary__row {
   display: flex;
   gap: 1rem;
   font-family: var(--font-display);
   font-size: 1.3rem;
   text-transform: uppercase;
+}
+
+.cart-summary__row--sub {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  text-transform: none;
+  color: var(--color-muted);
 }
 
 .cart-summary__checkout {
@@ -122,5 +140,58 @@
   .cart-item {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+.cart-page__mobile-cta {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .cart-page {
+    /* MobileAppHeader sits in-flow above this now — just a small gap. */
+    padding-top: 1.25rem;
+  }
+
+  /* MobileAppHeader already shows "Your Cart" as the screen title. */
+  .cart-page__title--repeats-header {
+    display: none;
+  }
+
+  .cart-summary__checkout {
+    display: none;
+  }
+
+  .cart-page__mobile-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 60;
+    height: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom));
+    padding: 0.75rem 1.25rem;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .cart-page__mobile-total {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75rem;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .cart-page__mobile-total strong {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--color-fg);
+    text-transform: none;
   }
 }

@@ -1,0 +1,91 @@
+.order-details__items {
+  margin-top: 2.5rem;
+  max-width: 480px;
+  border-top: 1px solid var(--color-border);
+}
+
+.order-details__row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 0.95rem;
+}
+
+.order-details__row--total {
+  border-bottom: none;
+  font-weight: 700;
+}
+
+.order-details__status {
+  margin-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.order-details__status-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.order-details__badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--color-border);
+  color: var(--color-fg);
+}
+
+.order-details__badge--shipped {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.order-details__badge--delivered {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+.order-details__badge--cancelled {
+  background: transparent;
+  border: 1px solid var(--color-muted);
+  color: var(--color-muted);
+}
+
+.order-details__tracking {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+.order-details__manual {
+  margin-top: 2rem;
+  max-width: 480px;
+  padding: 1.5rem;
+  border: 2px solid var(--color-black);
+  border-radius: 8px;
+}
+
+.order-details__manual h2 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.order-details__manual p {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.6;
+}
+
+.order-details__paid-note {
+  margin-top: 1.75rem;
+  font-weight: 600;
+}

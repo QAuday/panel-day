@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { STORE_UPI_ID, STORE_WHATSAPP_NUMBER } from '../config/store'
+import OrderDetails from '../components/OrderDetails'
 import './OrderConfirmation.css'
 
 function OrderConfirmation() {
@@ -43,34 +43,12 @@ function OrderConfirmation() {
         </span>
         <h1 className="confirmation-page__title">Thanks, {order.customerName.split(' ')[0]}.</h1>
         <p className="confirmation-page__order-id">Order #{order.id}</p>
+        <p className="confirmation-page__track-note">
+          Save this order ID — you can look up your order anytime at{' '}
+          <Link to="/track">Track Order</Link> using it and your email.
+        </p>
 
-        <div className="confirmation-items">
-          {order.items.map((item) => (
-            <div key={item.id} className="confirmation-items__row">
-              <span>
-                {item.name} × {item.qty}
-              </span>
-              <span>${item.price * item.qty}</span>
-            </div>
-          ))}
-        </div>
-
-        {!isPaid && order.paymentMethod === 'manual' && (
-          <div className="confirmation-manual">
-            <h2>Complete your payment</h2>
-            <p>
-              Pay via UPI to <strong>{STORE_UPI_ID}</strong>, or message us on WhatsApp
-              at <strong>{STORE_WHATSAPP_NUMBER}</strong> to arrange Cash on Delivery.
-              We'll confirm your order once payment is received.
-            </p>
-          </div>
-        )}
-
-        {isPaid && (
-          <p className="confirmation-paid-note">
-            Payment confirmed — we'll email you at {order.email} when your order ships.
-          </p>
-        )}
+        <OrderDetails order={order} />
 
         <Link to="/shop" className="btn btn-primary">
           Continue shopping

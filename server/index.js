@@ -5,6 +5,8 @@ import productsRouter from './routes/products.js'
 import subscribersRouter from './routes/subscribers.js'
 import ordersRouter from './routes/orders.js'
 import paymentsRouter from './routes/payments.js'
+import couponsRouter from './routes/coupons.js'
+import storeCreditRouter from './routes/storeCredit.js'
 
 const app = express()
 
@@ -15,6 +17,8 @@ app.use('/api/products', productsRouter)
 app.use('/api/subscribers', subscribersRouter)
 app.use('/api/orders', ordersRouter)
 app.use('/api/payments', paymentsRouter)
+app.use('/api/coupons', couponsRouter)
+app.use('/api/store-credit', storeCreditRouter)
 
 app.use((err, req, res, next) => {
   console.error(err)

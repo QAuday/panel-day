@@ -106,9 +106,11 @@
   100% { transform: translateY(200%); }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
   .hero {
-    padding-top: 5rem;
+    /* MobileAppHeader now sits in-flow above this, so it only needs a
+       small breathing gap, not room to clear a fixed navbar. */
+    padding-top: 2rem;
   }
 
   .hero__scroll {

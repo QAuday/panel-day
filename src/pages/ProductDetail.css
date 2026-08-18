@@ -1,0 +1,259 @@
+.product-detail-page {
+  min-height: 70vh;
+  padding-top: calc(var(--section-padding) + 4rem);
+  padding-bottom: var(--section-padding);
+  background: var(--color-white);
+}
+
+.product-detail-empty {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.product-detail-empty__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.product-detail-empty__text {
+  color: var(--color-muted);
+  max-width: 40ch;
+}
+
+.product-detail__back {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-muted);
+  margin-bottom: 2.5rem;
+  transition: color 160ms var(--ease);
+}
+
+.product-detail__back:hover {
+  color: var(--color-fg);
+}
+
+.product-detail__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.product-detail__art-wrap {
+  position: sticky;
+  top: 6rem;
+}
+
+.product-detail__badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.product-detail__info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.product-detail__name {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+}
+
+.product-detail__desc {
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 48ch;
+}
+
+.product-detail__sizes {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.product-detail__size {
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 2px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-fg);
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: border-color 160ms var(--ease), background-color 160ms var(--ease), color 160ms var(--ease);
+}
+
+.product-detail__size:hover {
+  border-color: var(--color-black);
+}
+
+.product-detail__size--active {
+  background: var(--color-black);
+  border-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.product-detail__actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  width: 100%;
+}
+
+.product-detail__add {
+  flex: 1;
+}
+
+.product-detail__wishlist {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1.5rem;
+  border: 2px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-fg);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: border-color 160ms var(--ease), color 160ms var(--ease);
+}
+
+.product-detail__wishlist svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.product-detail__wishlist:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.product-detail__wishlist--active {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.product-detail__related {
+  margin-top: 6rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.product-detail__related-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 2rem;
+}
+
+.product-detail__related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 900px) {
+  .product-detail__layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .product-detail__art-wrap {
+    position: static;
+  }
+
+  .product-detail__related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-detail__related-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+.product-detail__mobile-cta {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .product-detail-page {
+    /* MobileAppHeader sits in-flow above this now — just a small gap. */
+    padding-top: 1.25rem;
+  }
+
+  /* MobileAppHeader's back button already covers this. */
+  .product-detail__back {
+    display: none;
+  }
+
+  /* Sticky bottom CTA takes over — the inline row would just duplicate it. */
+  .product-detail__actions {
+    display: none;
+  }
+
+  .product-detail__mobile-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 60;
+    height: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom));
+    padding: 0.75rem 1.25rem;
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .product-detail__mobile-cta .price-tag {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .product-detail__mobile-cta-btn {
+    flex-shrink: 0;
+  }
+
+  .product-detail__mobile-wishlist {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 2px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-white);
+    color: var(--color-fg);
+  }
+
+  .product-detail__mobile-wishlist svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  .product-detail__mobile-wishlist--active {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+}

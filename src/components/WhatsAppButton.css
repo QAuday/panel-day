@@ -1,0 +1,41 @@
+.whatsapp-button {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 999px;
+  background: #25d366;
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+  transition: transform 200ms var(--ease), box-shadow 200ms var(--ease);
+}
+
+.whatsapp-button svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.28);
+}
+
+@media (max-width: 720px) {
+  .whatsapp-button {
+    right: 1rem;
+    /* Clears the fixed tab bar / sticky CTA bar that owns the bottom zone. */
+    bottom: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom) + 0.75rem);
+    width: 3.1rem;
+    height: 3.1rem;
+  }
+
+  .whatsapp-button svg {
+    width: 1.55rem;
+    height: 1.55rem;
+  }
+}

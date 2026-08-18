@@ -12,8 +12,11 @@ model Product {
   name     String
   desc     String
   price    Int
+  mrp      Int?
   category String
-  imageUrl String?
+  // Real photo URLs, set by you via Prisma Studio once photography exists.
+  // Empty/null falls back to the on-brand placeholder views in the gallery.
+  images   Json?
 
   orderItems OrderItem[]
 }
@@ -31,6 +34,16 @@ model Order {
   paymentMethod String // "manual" | "razorpay"
   status        String @default("pending_payment") // "pending_payment" | "paid"
 
+  shippingFee     Int     @default(0)
+  couponCode      String?
+  discountAmount  Int     @default(0)
+  storeCreditUsed Int     @default(0)
+
+  // Set by you (via Prisma Studio) as the order physically moves — no courier API involved.
+  fulfillmentStatus String  @default("processing") // "processing" | "shipped" | "delivered" | "cancelled"
+  carrierName       String?
+  trackingNumber    String?
+
   razorpayOrderId   String?
   razorpayPaymentId String?
 
@@ -43,6 +56,7 @@ model OrderItem {
   id    String @id @default(cuid())
   name  String
   price Int
+  size  String @default("")
   qty   Int
 
   order     Order   @relation(fields: [orderId], references: [id])
@@ -55,4 +69,33 @@ model Subscriber {
   id        String   @id @default(cuid())
   email     String   @unique
   createdAt DateTime @default(now())
+}
+
+model Coupon {
+  id             String    @id @default(cuid())
+  code           String    @unique
+  label          String? // display name for banners, e.g. "Diwali Sale"
+  percentOff     Int? // percent-based coupons (e.g. WELCOME10)
+  flatOff        Int? // flat rupee-amount coupons (e.g. festival sales)
+  minUnitPrice   Int? // for flat coupons: never let the average per-item price drop below this
+  active         Boolean   @default(true)
+  firstOrderOnly Boolean   @default(false)
+  // Real, fixed window — the same for every visitor. A countdown banner
+  // reads these directly, so there's nothing to fake: once endsAt passes,
+  // the code stops working for everyone, not just resets per-session.
+  startsAt       DateTime?
+  endsAt         DateTime?
+  createdAt      DateTime  @default(now())
+}
+
+// Store credit is only ever granted by you (via Prisma Studio) — refunds,
+// referral rewards, goodwill — never funded by a customer paying in real
+// money. That distinction keeps this a simple ledger, not a regulated
+// prepaid payment instrument.
+model StoreCredit {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  balance   Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

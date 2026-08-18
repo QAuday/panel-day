@@ -1,0 +1,84 @@
+.track-page {
+  min-height: 70vh;
+  padding-top: calc(var(--section-padding) + 4rem);
+  padding-bottom: var(--section-padding);
+  background: var(--color-white);
+}
+
+.track-page__inner {
+  max-width: 560px;
+}
+
+.track-page__title {
+  margin-top: 1rem;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.track-page__subtitle {
+  margin-top: 1rem;
+  color: var(--color-muted);
+  max-width: 46ch;
+}
+
+.track-form {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.track-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.track-form__field label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.track-form__field input {
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background: var(--color-white);
+  color: var(--color-fg);
+}
+
+.track-form__field input:focus-visible {
+  outline: none;
+  border-color: var(--color-black);
+}
+
+.track-form__submit {
+  margin-top: 0.5rem;
+}
+
+.track-page__error {
+  margin-top: 1.5rem;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.track-result {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.track-result__title {
+  font-size: 1.3rem;
+}
+
+@media (max-width: 720px) {
+  .track-page {
+    /* MobileAppHeader sits in-flow above this now — just a small gap. */
+    padding-top: 1.25rem;
+  }
+}

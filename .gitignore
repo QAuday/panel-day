@@ -21,6 +21,10 @@ server/prisma/dev.db-journal
 # Claude Code local-only settings
 .claude/settings.local.json
 
+# Personal session notes/transcripts — not part of the app
+last session.txt
+session of brand.txt
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

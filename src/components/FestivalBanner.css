@@ -1,0 +1,71 @@
+.festival-banner {
+  display: flex;
+  align-items: center;
+  background: var(--color-black);
+  color: var(--color-white);
+  overflow: hidden;
+  height: 2.25rem;
+}
+
+.festival-banner__track {
+  flex: 1;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.festival-banner__marquee {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  white-space: nowrap;
+  animation: festival-scroll 22s linear infinite;
+  padding-left: 4rem;
+}
+
+.festival-banner:hover .festival-banner__marquee {
+  animation-play-state: paused;
+}
+
+.festival-banner__message {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+@keyframes festival-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.festival-banner__dismiss {
+  flex: 0 0 auto;
+  width: 2.5rem;
+  height: 100%;
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.3rem;
+  line-height: 1;
+  transition: color 160ms var(--ease);
+}
+
+.festival-banner__dismiss:hover {
+  color: var(--color-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .festival-banner__marquee {
+    animation: none;
+    padding-left: 1rem;
+  }
+
+  .festival-banner__message:nth-child(2) {
+    display: none;
+  }
+}

@@ -32,7 +32,8 @@
 }
 
 .navbar:not(.navbar--scrolled) .navbar__logo,
-.navbar:not(.navbar--scrolled) .navbar__links a {
+.navbar:not(.navbar--scrolled) .navbar__links a,
+.navbar:not(.navbar--scrolled) .navbar__links button {
   color: var(--color-white);
 }
 
@@ -41,15 +42,22 @@
   gap: 2rem;
 }
 
-.navbar__links a {
+.navbar__links a,
+.navbar__links button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--color-fg);
   transition: color 200ms var(--ease);
 }
 
-.navbar__links a:hover {
+.navbar__links a:hover,
+.navbar__links button:hover {
   color: var(--color-accent);
 }
 
@@ -74,12 +82,9 @@
   font-weight: 700;
 }
 
-@media (max-width: 640px) {
-  .navbar__links {
-    gap: 1.1rem;
-  }
-
-  .navbar__links a {
-    font-size: 0.72rem;
+@media (max-width: 720px) {
+  /* MobileAppHeader replaces this entirely below the breakpoint. */
+  .navbar {
+    display: none;
   }
 }

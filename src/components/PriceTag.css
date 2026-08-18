@@ -1,0 +1,34 @@
+.price-tag {
+  display: flex;
+  align-items: baseline;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.price-tag__price {
+  font-weight: 700;
+}
+
+.price-tag__mrp {
+  color: var(--color-muted);
+  text-decoration: line-through;
+  font-size: 0.85rem;
+}
+
+.price-tag__off {
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.price-tag--lg .price-tag__price {
+  font-size: 1.75rem;
+}
+
+.price-tag--lg .price-tag__mrp {
+  font-size: 1.1rem;
+}
+
+.price-tag--lg .price-tag__off {
+  font-size: 0.9rem;
+}

@@ -67,6 +67,97 @@
   flex-wrap: wrap;
 }
 
+.checkout-coupon {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0.25rem 0;
+}
+
+.checkout-coupon label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.checkout-coupon__row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.checkout-coupon__row input {
+  flex: 1;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  background: var(--color-white);
+  color: var(--color-fg);
+  text-transform: uppercase;
+}
+
+.checkout-coupon__row input:focus-visible {
+  outline: none;
+  border-color: var(--color-black);
+}
+
+.checkout-coupon__row .btn {
+  padding: 0.6rem 1.5rem;
+  border-color: var(--color-black);
+  color: var(--color-fg);
+}
+
+.checkout-coupon__applied {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border: 2px solid var(--color-black);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.checkout-coupon__applied button {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  transition: color 200ms var(--ease);
+}
+
+.checkout-coupon__applied button:hover {
+  color: var(--color-accent);
+}
+
+.checkout-coupon__error {
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.checkout-credit {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border: 2px solid var(--color-black);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.checkout-credit input {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
 .checkout-payment {
   border: none;
   padding: 0;
@@ -151,5 +242,29 @@
   .checkout-summary {
     position: static;
     order: -1;
+  }
+}
+
+@media (max-width: 720px) {
+  .checkout-page {
+    /* MobileAppHeader sits in-flow above this now — just a small gap. */
+    padding-top: 1.25rem;
+  }
+
+  /* MobileAppHeader already shows "Checkout" as the screen title. */
+  .checkout-page__title--repeats-header {
+    display: none;
+  }
+
+  .checkout-submit {
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 60;
+    margin-top: 0;
+    height: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
+    border-radius: 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
   }
 }

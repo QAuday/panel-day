@@ -8,12 +8,18 @@ import './Shop.css'
 
 function Shop() {
   const [activeCategory, setActiveCategory] = useState('all')
+  const [query, setQuery] = useState('')
   const { products, loading, error } = useProducts()
 
   const visibleProducts = useMemo(() => {
-    if (activeCategory === 'all') return products
-    return products.filter((product) => product.category === activeCategory)
-  }, [products, activeCategory])
+    const byCategory =
+      activeCategory === 'all' ? products : products.filter((product) => product.category === activeCategory)
+    const q = query.trim().toLowerCase()
+    if (!q) return byCategory
+    return byCategory.filter(
+      (product) => product.name.toLowerCase().includes(q) || product.desc.toLowerCase().includes(q),
+    )
+  }, [products, activeCategory, query])
 
   return (
     <>
@@ -49,6 +55,15 @@ function Shop() {
 
       <section className="shop-grid-section">
         <div className="container">
+          <input
+            type="search"
+            className="shop-search"
+            placeholder="Search panels…"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            aria-label="Search products"
+          />
+
           <div className="shop-filters">
             {CATEGORIES.map((cat) => (
               <button
